@@ -1,0 +1,29 @@
+print("Welcome to the Python Pizza.")
+size = input("Whats the size of the pizza you would like to order? Type ‘S’ or ‘M’ or ‘L’").upper()
+bill = 0
+if size == 'S':
+  bill = 15
+elif size == 'M':
+  bill = 20
+elif size == 'L':
+  bill = 25
+
+  add_pepperoni = input("Do you want to add pepperoni to the pizza? Type ‘Y’ or ‘N’").upper()
+  if add_pepperoni == 'Y':
+      if size == 'S':
+       bill+=2
+      else:
+       bill +=3
+  
+      add_extracheese = input("Do you want to add extra cheese to the pizza? Type ‘Y’ or ‘N’").upper()
+      if add_extracheese == 'Y':
+       bill +=1
+      else:  
+       print("Type error. Enter 'Y' or 'N'")
+  else:
+    print("Type error. Enter 'Y' or 'N'")
+  
+else: 
+     print("You chose the input that doesnt exist")
+
+print(f"Your final bill is {bill}")
