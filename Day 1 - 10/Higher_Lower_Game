@@ -1,0 +1,51 @@
+from replit import clear
+from art import logo, vs
+from game_data import data 
+import random
+
+score = 0
+game_over = False
+B = random.choice(data)
+
+def game():
+    global score, game_over, B
+    A = B
+    B = random.choice(data)
+    while A == B:
+      B = random.choice(data)
+  
+    print(logo)
+    print(f"Compare A: {A['name']}, {A['description']}, from {A['country']}.")
+
+    print(vs)
+    print(f"Against B: {B['name']}, {B['description']}, from {B['country']}.")
+  
+    user_choice = input("Who has more followers. Type 'A' or 'B':").upper()
+  
+    if compare(A, B, user_choice):
+        score += 1
+        print(f"Your right! Current score: {score}.")
+    else:
+        print(f"Sorry, that's wrong. Final score: {score}.")
+        game_over = True
+# Store it A and B
+# Create a function to compare the follower count of A and B
+def compare(chosen, against, user_choice):
+  global score
+  if chosen['follower_count'] > against['follower_count'] and  user_choice == 'A':
+     return True
+    
+  elif chosen['follower_count'] > against['follower_count'] and user_choice == 'B':
+     return True
+      
+  elif chosen['follower_count'] < against['follower_count'] and user_choice == 'B':
+      return False
+  else:
+      return False
+while not game_over:
+  clear()
+  game()
+
+
+
+
