@@ -1,0 +1,25 @@
+#Convert the input values into a list.
+student_height = input("Enter students height seperate by a space:\n").split()
+
+#To loop over the list where the elemets are in string format.
+#we need to use len to get the length of the list  and range to generate indices for looping over the list
+#Convert each value in the list to integer
+for n in range (0, len(student_height)):
+  student_height[n] = int(student_height[n])
+
+#We need to find the total height and number of students
+#Inizialize the total height and number of students
+total_height = 0
+number_of_students = 0
+
+#For each value in the list "student_height" add total height to it, increment no of students
+for height in student_height:
+  total_height += height
+  number_of_students +=1
+
+print("total height = ", total_height)
+print("number of students = ", number_of_students)
+
+#To calculate the average height:
+average_height = round(total_height/number_of_students)
+print("average height = ", average_height)
