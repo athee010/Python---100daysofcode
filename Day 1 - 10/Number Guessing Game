@@ -1,0 +1,45 @@
+import random 
+from art import logo
+
+print(logo)
+
+def compare(user_input, computer_input, remaining_guesses):
+    if user_input == computer_input:
+        print(f"You got it! The answer was {computer_input}")
+        return False  # Game should stop
+    elif user_input > computer_input:
+        print("Too High. Guess again.")
+    else: 
+        print("Too Low. Guess again")
+
+    if remaining_guesses == 0:
+        print("You have run out of guesses, you lose.")
+        return False  # Game should stop
+    else:
+        print(f"You have {remaining_guesses} attempts remaining to guess the number.")
+        return True  # Game should continue
+
+def play_game():
+    print("Welcome to the Number Guessing Game!")
+    print("I am thinking of a number between 1 and 100.")
+    computer_choice = random.randint(1, 100)
+    print(f"Psst, the correct answer is {computer_choice}")
+    level = input("Choose a difficulty. Type 'easy' or 'hard': ").lower()
+
+    if level == 'easy':
+        guess = 10
+        print("You have 10 attempts remaining to guess the number")
+    elif level == 'hard':
+        guess = 5
+        print("You have 5 attempts remaining to guess the number.")
+    else:
+        print("Invalid difficulty level. Please choose 'easy' or 'hard'.")
+        return  # Exit the function if the difficulty level is invalid
+
+    continue_game = True
+    while continue_game:
+        user_choice = int(input("Make a guess: "))
+        guess -= 1
+        continue_game = compare(user_choice, computer_choice, guess)
+
+play_game()
