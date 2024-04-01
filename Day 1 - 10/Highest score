@@ -1,0 +1,17 @@
+#Ask user to enter the scores and convert it into a string using split
+students_score = input("Enter the student's scores seperated by space\n").split()
+
+#Convert the string elements in to integers using fo loop, range and len
+for i in range(0, len(students_score)):
+  students_score[i] = int(students_score[i])
+
+#Initialize the maximum score as 0 or the first elemtent of the string
+max_score = 0
+
+#Compare each value in the list to the first value. If it is greater asign it as the first value and loop continues
+
+for score in students_score:
+  if score > max_score:
+     max_score = score
+
+print(f"Highest score is : {max_score}")
